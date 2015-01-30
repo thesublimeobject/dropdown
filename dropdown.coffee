@@ -6,22 +6,11 @@ class Dropdown
 
 	constructor: (el) ->
 		@el = el
-		# @speed: 300
-		# @easing: 'ease'
-		# @gutter: 0
-		# @stack: true
-		# @delay: 0
-		# @random: false
-		# @rotated: false
-		# @slidingIn: false
 
 	transformSelect: ->
 		optionsHTML = ''
 		label = ''
 		value = -1
-
-		# Need to add back the label for the front of the drop
-		#____________
 
 		[].forEach.call @el.children, (el) ->
 			val = el.getAttribute 'value'
@@ -40,9 +29,8 @@ class Dropdown
 				selectLabel = label
 				value = val
 
-
 		@el.insertAdjacentHTML('afterend', '<div class="cd-dropdown"></div>')
-		@drop = document.getElementsByClassName('cd-dropdown')[0]
+		@drop = @el.parentNode.querySelector('.cd-dropdown')
 		ul = document.createElement('ul')
 		@drop.appendChild(ul)
 		@listofOptions = @drop.querySelector('ul')

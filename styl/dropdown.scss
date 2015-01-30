@@ -1,16 +1,18 @@
 .select-ctn {
 	display: none;
-	@include at-breakpoint($at-1024) {
-		display: block;
-		@include span-columns(24,24);
-		margin: 1.5rem 0;
-		text-align: center;
-	}
+}
+
+@media (max-width: 64em) {
+	display: block;
+	width: 100%;
+	float: left;
+	display: inline-block;
+	margin: 1.5rem 0;
+	text-align: center;
 }
 
 .cd-dropdown,
 .cd-select {
-	@include md(0.75rem, 1.5);
 	position: relative;
 	width: 19rem;
 	margin: 1rem auto;
@@ -33,7 +35,9 @@
 	content: '\25BC';
 	position: absolute;
 	right: 0;
-	@extend .v-center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 	width: 2.5rem;
 	padding: 0.5rem;
 	line-height: 2rem;
@@ -90,7 +94,7 @@
 }
 
 .cd-active.cd-dropdown > span {
-	color: $blue;
+	color: #000;
 }
 
 .cd-active.cd-dropdown > span,
@@ -103,6 +107,6 @@
 }
 
 .cd-active.cd-dropdown ul li span:hover {
-	background: $orange;
+	background: red;
 	color: #fff;
 }
