@@ -2,15 +2,6 @@
 	display: none;
 }
 
-@media (max-width: 64em) {
-	display: block;
-	width: 100%;
-	float: left;
-	display: inline-block;
-	margin: 1.5rem 0;
-	text-align: center;
-}
-
 .cd-dropdown,
 .cd-select {
 	position: relative;

@@ -2,6 +2,8 @@
 	# Select Menu -> Dropdown
 #*--------------------------------------------------------#
 
+classie = require 'classie'
+
 class Dropdown
 
 	constructor: (el) ->
@@ -61,12 +63,12 @@ class Dropdown
 
 		@selectLabel.style.zIndex = @zIndex + @optionsCount
 		@positioning()
-		if Modernizr.csstransitions
-			setTimeout ->
-				[].forEach.call _this.options, (el) ->
-					el.style.transition = 'all 300ms ease-in'
-					return
-			, 25
+		# if Modernizr.csstransitions
+		setTimeout ->
+			[].forEach.call _this.options, (el) ->
+				el.style.transition = 'all 300ms ease-in'
+				return
+		, 25
 		return
 
 	positioning: (anim) ->
@@ -131,4 +133,17 @@ class Dropdown
 		@initEvents()
 		return
 
-module.exports = Dropdown
+includePaths = ->
+	dropdownPaths = path.join(__dirname, 'styl');
+	dropdownPaths
+
+module.exports = {
+	Dropdown
+
+	includePaths: includePaths()
+
+	with: ->
+		paths  = Array.prototype.slice.call(arguments)
+		result = [].concat.apply(includePaths(), paths)
+		result
+}
